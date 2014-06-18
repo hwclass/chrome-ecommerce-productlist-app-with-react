@@ -5,24 +5,24 @@ A basic product list application on chrome platform with ReactJS.
 
 ###usage - 1 : Browserify the React code into pure Javascript
 
-<code lang="javascript">
-	<pre>
+<pre>
+	<code lang="javascript">
 		browserify -t reactify app.js > app.bundle.js
-	</pre>
-</code>
+	</code>
+</pre>
 
 ###usage - 2 : Include into the browser_action.html file
 
-<code lang="html">
-	<pre>
+<pre>
+	<code lang="html">
 		<script type="text/javascript" src="app.bundle.js"></script>
-	</pre>
-</code>
+	</code>
+</pre>
 
 ###example data structure
 
-<code lang="json">
-	<pre>
+<pre>
+	<code lang="json">
 		[
 			{
 				actual_price: "99.99"
@@ -35,5 +35,5 @@ A basic product list application on chrome platform with ReactJS.
 				url_key: "https://www.misspera.com/p/calvin-klein-euphoria-edp-100-ml-kadin-parfumu"
 			}
 		]
-	</pre>
-</code>
+	</code>
+</pre>
