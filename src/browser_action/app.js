@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -8,7 +9,7 @@
    * Header renders the header section of the app
    *
    */
-	var Header = React.createClass({
+	var Header = React.createClass({displayName: 'Header',
 		
 		/**
 		 * render() renders the header
@@ -16,9 +17,9 @@
 		 */
 		render : function() {
 			return (
-				<div id="header" className="cf">
-					<img src={config.imgPaths.logo} width="164" height="26" className="custom"/>
-				</div>
+				React.DOM.div( {id:"header", className:"cf"}, 
+					React.DOM.img( {src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
+				)
 			)
 		}
 
@@ -28,7 +29,7 @@
 	 * Product renders all the product one by one
 	 *
 	 */
-	var Product = React.createClass({
+	var Product = React.createClass({displayName: 'Product',
 
 		/**
 		 * handleMouseOver() reacts when a product is hovered
@@ -56,18 +57,18 @@
 		 */
 		render : function() {
 			return (
-				<li className="product">
-					<a className="product-link" href={this.props.product.url_key} name={this.props.product.name} target="_blank" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
-						<img src={this.props.product.images[0]}/>
-						<div className="price">
-							<p className="brand-name">{this.props.product.brand_name}</p>
-							<p className="brand-detail">{this.props.product.name}</p>
-							<p className="price-detail-old">{this.props.product.actual_price}</p>
-							<p className="price-detail">{this.props.product.sale_price}</p>
-						</div>
-						<div className="product-overlay hidden"></div>
-					</a>
-				</li>
+				React.DOM.li( {className:"product"}, 
+					React.DOM.a( {className:"product-link", href:this.props.product.url_key, name:this.props.product.name, target:"_blank", onMouseOver:this.handleMouseOver, onMouseOut:this.handleMouseOut}, 
+						React.DOM.img( {src:this.props.product.images[0]}),
+						React.DOM.div( {className:"price"}, 
+							React.DOM.p( {className:"brand-name"}, this.props.product.brand_name),
+							React.DOM.p( {className:"brand-detail"}, this.props.product.short_description),
+							React.DOM.p( {className:"price-detail-old"}, this.props.product.actual_price),
+							React.DOM.p( {className:"price-detail"}, this.props.product.sale_price)
+						),
+						React.DOM.div( {className:"product-overlay hidden"})
+					)
+				)
 			)
 		}
 
@@ -77,7 +78,7 @@
 	 * MissperaApp creates a React class for the whole application as a wrapper
 	 *
 	 */
-	var MissperaApp = React.createClass({
+	var MissperaApp = React.createClass({displayName: 'MissperaApp',
 
 		/**
 		 * getInitialState() returns states of the app
@@ -173,18 +174,18 @@
 	  	var len = (this.state.products?this.state.products.length:0);
 	  	if (!this.isNull(this.state.products) && len > 0) {
 		  	this.state.products.forEach(function(product) {
-		  		product[config.json.name] = this.reduceCharOnShortDesc(product[config.json.name]);
-		  		productsList.push(<Product product={product}></Product>);
+		  		product[config.json.shortDesc] = this.reduceCharOnShortDesc(product[config.json.shortDesc]);
+		  		productsList.push(Product( {product:product}));
 		  	}.bind(this));
 		  	$(config.el.loader).hide();
 		  }
     	return (
-    		<div className="productsBox">
-    			<Header/>
-    			<ul id="product_list" className="cf">
-		    		{productsList}
-		    	</ul>
-    		</div>
+    		React.DOM.div( {className:"productsBox"}, 
+    			Header(null),
+    			React.DOM.ul( {id:"product_list", className:"cf"}, 
+		    		productsList
+		    	)
+    		)
 	    );
 	  }
 
@@ -195,8 +196,9 @@
 	 *
 	 */
 	React.renderComponent(
-	  <MissperaApp source="http://172.18.140.79:8000/ajax/favorite_products" />,
+	  MissperaApp( {source:"http://172.18.140.79:8000/ajax/favorite_products"} ),
 	  document.getElementById('MissperaChromeApp')
 	);
 
 }(config, React, jQuery));
+},{}]},{},[1])
