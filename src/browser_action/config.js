@@ -1,7 +1,7 @@
 var config = {
-	site : 'http://www.misspera.com',
+	site : 'http://www.some.com',
 	domains : {
-		misspera : 'misspera'
+		some : 'some.com'
 	},
 	el : {
 		productList : $('#product_list'),
@@ -13,7 +13,7 @@ var config = {
 		logo : '../../img/logo.png'
 	},
 	urls : {
-		favouriteProducts : 'http://172.18.140.79:8000/ajax/favorite_products',
+		favouriteProducts : 'http://127.0.0.1/ajax/favorite_products',
 		fireabase : 'https://product-api.firebaseio.com'
 	},
 	errors : {
