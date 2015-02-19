@@ -4,25 +4,23 @@
 
 (function(config, React, $) {
 
-	/**
+  /**
    * Header renders the header section of the app
-   *
    */
-	var Header = React.createClass({displayName: 'Header',
-		
-		/**
-		 * render() renders the header
-		 *
-		 */
-		render : function() {
-			return (
-				React.DOM.div( {id:"header", className:"cf"}, 
-					React.DOM.img( {src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
-				)
-			)
-		}
+  var Header = React.createClass({displayName: 'Header',
 
-	});
+    /**
+     * render() renders the header
+     */
+    render : function() {
+      return (
+        React.DOM.div( {id:"header", className:"cf"}, 
+          React.DOM.img( {src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
+        )
+      )
+    }
+
+  });
 
 	/**
 	 * Product renders all the product one by one
