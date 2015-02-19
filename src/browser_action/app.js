@@ -22,54 +22,53 @@
 
   });
 
-	/**
-	 * Product renders all the product one by one
-	 *
-	 */
-	var Product = React.createClass({displayName: 'Product',
+  /**
+   * Product renders all the product one by one
+   *
+   */
+  var Product = React.createClass({displayName: 'Product',
 
-		/**
-		 * handleMouseOver() reacts when a product is hovered
-		 *
-		 * @param <Event> e
-		 */
-		handleMouseOver : function (e) {
-			$(e.target).find('.product-overlay').removeClass('hidden');
-		},
+    /**
+     * handleMouseOver() reacts when a product is hovered
+     *
+     * @param <Event> e
+     */
+    handleMouseOver : function (e) {
+      $(e.target).find('.product-overlay').removeClass('hidden');
+    },
 
-		/**
-		 * handleMouseOut() reacts when a product is unhovered
-		 *
-		 * @param <Event> e
-		 */
-		handleMouseOut : function (e) {
-			if (!$(e.target).find('.product-overlay').hasClass('hidden')) {
-				$(e.target).find('.product-overlay').addClass('hidden');
-			}
-		},
+    /**
+     * handleMouseOut() reacts when a product is unhovered
+     *
+     * @param <Event> e
+     */
+    handleMouseOut : function (e) {
+      if (!$(e.target).find('.product-overlay').hasClass('hidden')) {
+        $(e.target).find('.product-overlay').addClass('hidden');
+      }
+    },
 
-		/**
-		 * render() renders a product within a list item
-		 *
-		 */
-		render : function() {
-			return (
-				React.DOM.li( {className:"product"}, 
-					React.DOM.a( {className:"product-link", href:this.props.product.url_key, name:this.props.product.name, target:"_blank", onMouseOver:this.handleMouseOver, onMouseOut:this.handleMouseOut}, 
-						React.DOM.img( {src:this.props.product.images[0]}),
-						React.DOM.div( {className:"price"}, 
-							React.DOM.p( {className:"brand-name"}, this.props.product.brand_name),
-							React.DOM.p( {className:"brand-detail"}, this.props.product.short_description),
-							React.DOM.p( {className:"price-detail-old"}, this.props.product.actual_price),
-							React.DOM.p( {className:"price-detail"}, this.props.product.sale_price)
-						),
-						React.DOM.div( {className:"product-overlay hidden"})
-					)
-				)
-			)
-		}
+    /**
+     * render() renders a product within a list item
+     *
+     */
+    render : function() {
+      return (
+        React.DOM.li({className:"product"}, 
+          React.DOM.a({className:"product-link", href:this.props.product.url_key, name:this.props.product.name, target:"_blank", onMouseOver:this.handleMouseOver, onMouseOut:this.handleMouseOut}, 
+            React.DOM.img({src:this.props.product.images[0]}),
+            React.DOM.div({className:"price"}, 
+              React.DOM.p({className:"brand-name"}, this.props.product.brand_name),
+              React.DOM.p({className:"brand-detail"}, this.props.product.short_description),
+              React.DOM.p({className:"price-detail-old"}, this.props.product.actual_price),
+              React.DOM.p({className:"price-detail"}, this.props.product.sale_price)),
+            React.DOM.div( {className:"product-overlay hidden"})
+          )
+        )
+      )
+    }
 
-	}); 
+  }); 
 
 	/**
 	 * MissperaApp creates a React class for the whole application as a wrapper
@@ -198,4 +197,3 @@
 	);
 
 }(config, React, jQuery));
-},{}]},{},[1])
