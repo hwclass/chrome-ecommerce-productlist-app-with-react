@@ -1,3 +1,6 @@
+/**
+ * config is the configuration wrapper object of the app
+ */
 var config = {
 	site : 'http://www.some.com',
 	domains : {
@@ -33,4 +36,4 @@ var config = {
 		shortDesc : 'short_description',
 		name : 'name'
 	}
-}
+};
