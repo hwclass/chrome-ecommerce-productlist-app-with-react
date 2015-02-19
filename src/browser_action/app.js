@@ -71,10 +71,10 @@
   }); 
 
 	/**
-	 * MissperaApp creates a React class for the whole application as a wrapper
+	 * chromeApp creates a React class for the whole application as a wrapper
 	 *
 	 */
-	var MissperaApp = React.createClass({displayName: 'MissperaApp',
+	var chromeApp = React.createClass({displayName: 'chromeApp',
 
 		/**
 		 * getInitialState() returns states of the app
@@ -192,8 +192,8 @@
 	 *
 	 */
 	React.renderComponent(
-	  MissperaApp( {source:"http://172.18.140.79:8000/ajax/favorite_products"} ),
-	  document.getElementById('MissperaChromeApp')
+	  chromeApp({source:"http://localhost:8000/ajax/favorite_products"}),
+	  document.getElementById('chromeApp')
 	);
 
 }(config, React, jQuery));
