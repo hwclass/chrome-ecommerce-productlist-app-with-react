@@ -1,21 +1,21 @@
 /**
- * @jsx React.DOM
+ * @jsx R.DOM
  */
 
-(function(config, React, $) {
+(function(config, R, $) {
 
   /**
    * Header renders the header section of the app
    */
-  var Header = React.createClass({displayName: 'Header',
+  var Header = R.createClass({displayName: 'Header',
 
     /**
      * render() renders the header
      */
     render : function() {
       return (
-        React.DOM.div({id:"header", className:"cf"}, 
-          React.DOM.img({src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
+        R.DOM.div({id:"header", className:"cf"}, 
+          R.DOM.img({src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
         )
       )
     }
@@ -26,7 +26,7 @@
    * Product renders all the product one by one
    *
    */
-  var Product = React.createClass({displayName: 'Product',
+  var Product = R.createClass({displayName: 'Product',
 
     /**
      * handleMouseOver() reacts when a product is hovered
@@ -54,15 +54,15 @@
      */
     render : function() {
       return (
-        React.DOM.li({className:"product"}, 
-          React.DOM.a({className:"product-link", href:this.props.product.url_key, name:this.props.product.name, target:"_blank", onMouseOver:this.handleMouseOver, onMouseOut:this.handleMouseOut}, 
-            React.DOM.img({src:this.props.product.images[0]}),
-            React.DOM.div({className:"price"}, 
-              React.DOM.p({className:"brand-name"}, this.props.product.brand_name),
-              React.DOM.p({className:"brand-detail"}, this.props.product.short_description),
-              React.DOM.p({className:"price-detail-old"}, this.props.product.actual_price),
-              React.DOM.p({className:"price-detail"}, this.props.product.sale_price)),
-            React.DOM.div( {className:"product-overlay hidden"})
+        R.DOM.li({className:"product"}, 
+          R.DOM.a({className:"product-link", href:this.props.product.url_key, name:this.props.product.name, target:"_blank", onMouseOver:this.handleMouseOver, onMouseOut:this.handleMouseOut}, 
+            R.DOM.img({src:this.props.product.images[0]}),
+            R.DOM.div({className:"price"}, 
+              R.DOM.p({className:"brand-name"}, this.props.product.brand_name),
+              R.DOM.p({className:"brand-detail"}, this.props.product.short_description),
+              R.DOM.p({className:"price-detail-old"}, this.props.product.actual_price),
+              R.DOM.p({className:"price-detail"}, this.props.product.sale_price)),
+            R.DOM.div( {className:"product-overlay hidden"})
           )
         )
       )
@@ -73,7 +73,7 @@
   /**
    * chromeApp creates a React class for the whole application as a wrapper
    */
-  var chromeApp = React.createClass({displayName: 'chromeApp',
+  var chromeApp = R.createClass({displayName: 'chromeApp',
 
     /**
      * getInitialState() returns states of the app
@@ -161,7 +161,7 @@
     },
 
     /**
-     * render() renders the whole application
+     * render() renders the application
      *
      */
     render: function() {
@@ -175,9 +175,9 @@
         $(config.el.loader).hide();
       }
       return (
-        React.DOM.div( {className:"productsBox"}, 
+        R.DOM.div( {className:"productsBox"}, 
         	Header(null),
-        	React.DOM.ul( {id:"product_list", className:"cf"}, 
+        	R.DOM.ul( {id:"product_list", className:"cf"}, 
         		productsList
         	)
         )
@@ -189,7 +189,7 @@
   /**
    * renderComponent() renders the whole app into the context as an element
    */
-  React.renderComponent(
+  R.renderComponent(
     chromeApp({source:"http://localhost:8000/ajax/favorite_products"}),
     document.getElementById('chromeApp')
   );

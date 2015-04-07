@@ -22,15 +22,15 @@ browserify -t reactify app.js > app.bundle.js
 <pre>
 	<code lang="json">
 [
-	{
-		actual_price: "99.99"
-		images: Array[1] : {
-			0: "https://www.misspera.com/site_media/uploads/product_image/8652/8825_01_138x192.jpg"
-		},
-		name: "Euphoria EDP 100 ml"
-		sale_price: "99.99"
-		short_description: "Kadın Parfümü..."
-		url_key: "https://www.misspera.com/p/calvin-klein-euphoria-edp-100-ml-kadin-parfumu"
+  {
+    actual_price: "99.99"
+    images: Array[1] : {
+    	0: "https://www.domain.com/media/files/image/8652/8825_01_138x192.jpg"
+    },
+    name: "Test product 1"
+    sale_price: "99.99"
+    short_description: "Pants"
+    url_key: "https://www.domain.com/product/pants"
 	}
 ]
 	</code>
