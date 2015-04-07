@@ -2,7 +2,7 @@
  * @jsx R.DOM
  */
 
-(function(config, R, $) {
+(function(c, R, $) {
 
   /**
    * Header renders the header section of the app
@@ -15,7 +15,7 @@
     render : function() {
       return (
         R.DOM.div({id:"header", className:"cf"}, 
-          R.DOM.img({src:config.imgPaths.logo, width:"164", height:"26", className:"custom"})
+          R.DOM.img({src:c.imgPaths.logo, width:"164", height:"26", className:"custom"})
         )
       )
     }
@@ -94,7 +94,7 @@
      * @return <String>
      */
     reduceCharOnShortDesc : function (text) {
-      return text.substring(0, config.stringBoundry) + config.stringExtension;
+      return text.substring(0, c.stringBoundry) + c.stringExtension;
     },
 
     /**
@@ -117,17 +117,17 @@
      *
      */
     showError : function (code){
-      $(config.el.loader).hide();
-      if (code == config.errors['400']) {
-        $(config.el.err).html(config.errorMessages.serverConnectionFailed);
-      } else if (code == config.errors['500']) {
-        $(config.el.err).html(config.errorMessages.internalServerError);
+      $(c.el.loader).hide();
+      if (code == c.errors['400']) {
+        $(c.el.err).html(c.errorMessages.serverConnectionFailed);
+      } else if (code == c.errors['500']) {
+        $(c.el.err).html(c.errorMessages.internalServerError);
       } else if (code == 'timeout') {
-        $(config.el.err).html(config.errorMessages.timeout);
+        $(c.el.err).html(c.errorMessages.timeout);
       } else {
-        $(config.el.err).html(config.errorMessages.unidentifiedError);
+        $(c.el.err).html(c.errorMessages.unidentifiedError);
       }
-      $(config.el.err).show();
+      $(c.el.err).show();
     },
 
     /**
@@ -169,10 +169,10 @@
       var len = (this.state.products?this.state.products.length:0);
       if (!this.isNull(this.state.products) && len > 0) {
         this.state.products.forEach(function(product) {
-        	product[config.json.shortDesc] = this.reduceCharOnShortDesc(product[config.json.shortDesc]);
+        	product[c.json.shortDesc] = this.reduceCharOnShortDesc(product[c.json.shortDesc]);
         	productsList.push(Product( {product:product}));
         }.bind(this));
-        $(config.el.loader).hide();
+        $(c.el.loader).hide();
       }
       return (
         R.DOM.div( {className:"productsBox"}, 
