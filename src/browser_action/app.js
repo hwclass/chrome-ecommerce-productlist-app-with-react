@@ -190,7 +190,7 @@
    * renderComponent() renders the whole app into the context as an element
    */
   R.renderComponent(
-    chromeApp({source:"http://localhost:8000/ajax/favorite_products"}),
+    chromeApp({source:"http://localhost:port/ajax/source"}),
     document.getElementById('chromeApp')
   );
 
